@@ -1,10 +1,9 @@
 import express from "express";
 import dbConnect from "./db/db.js";
-import { configDotenv } from "dotenv";
-configDotenv();
+import { port } from "./config/config.js";
+
 const app = express();
 
-const port = process.env.PORT;
 app.listen(port, async () => {
   await dbConnect();
   console.log(`nodes server is running on port: ${port}`);
